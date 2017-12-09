@@ -21,7 +21,7 @@
     methods: {
       toggleCheck() {
         this.checked = !this.checked;
-      }
+      },
       removeTodo() {
         this.$emit('remove-todo');
       }

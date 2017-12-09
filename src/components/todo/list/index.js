@@ -2,7 +2,7 @@ import Vue from 'vue';
 import TodoList from './component';
 import TodoListElement from './element';
 
-TodoItemElement.implement({
+TodoListElement.implement({
   get options() {
     return {
       events: {
