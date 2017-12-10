@@ -4,14 +4,13 @@
     <todo-input v-on:keydown="onTodoInputKeyDown"
                 ref="todoInput" />
 
-    <!-- TODO: Add transitions -->
-    <todos>
+    <transition-group name="todo" tag="todos">
       <li v-for="todo of todos"
           af-scope="todo"
           :key="todo.id"
           :data-id="todo.id"
           :data-value="todo.value" />
-    </todos>
+    </transition-group>
   </af_view-todo-list>
 </template>
 
@@ -63,5 +62,16 @@
         this.submitTodoInput();
       }
     }
-  }
+  };
 </script>
+
+<style scoped>
+  .todo-enter-active, .todo-leave-active {
+    transition: all 1s;
+  }
+
+  .todo-enter, .todo-leave-to {
+    opacity: 0;
+    transform: translateX(200px);
+  }
+</style>
