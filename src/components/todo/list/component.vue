@@ -4,7 +4,7 @@
     <todo-input v-on:keydown="onTodoInputKeyDown"
                 ref="todoInput" />
 
-    <transition-group name="todo" tag="todos">
+    <transition-group tag="todos" duration="1000">
       <li v-for="todo of todos"
           af-scope="todo"
           :key="todo.id"
@@ -64,14 +64,3 @@
     }
   };
 </script>
-
-<style scoped>
-  .todo-enter-active, .todo-leave-active {
-    transition: all 1s;
-  }
-
-  .todo-enter, .todo-leave-to {
-    opacity: 0;
-    transform: translateX(200px);
-  }
-</style>

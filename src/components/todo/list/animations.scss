@@ -1,0 +1,10 @@
+#af-view {
+  af-todo-item.v-enter-active, af-todo-item.v-leave-active {
+    transition: all 1s;
+  }
+
+  af-todo-item.v-enter, af-todo-item.v-leave-to {
+    opacity: 0;
+    transform: translateX(200px);
+  }
+}

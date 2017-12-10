@@ -1,12 +1,13 @@
 import Appfairy from 'appfairy';
 import Vue from 'vue';
+import animations from './animations.scss';
 import TodoList from './component';
-import styleSheet from './style.scss'
+import styleSheet from './style.scss';
 import viewHTML from './view.html';
 
 class TodoListView extends Appfairy.View(HTMLElement) {
   initializeStyle(style) {
-    style.innerHTML = styleSheet;
+    style.innerHTML = styleSheet + animations;
   }
 
   initializeView(view) {
