@@ -1,30 +1,35 @@
 <template>
   <af_view-todo-list>
-    <add-btn v-on:click="onAddBtnClick"></add-btn>
+    <add-btn v-on:click="onAddBtnClick" />
     <todo-input v-on:keydown="onTodoInputKeyDown"
-                ref="todoInput"></todo-input>
+                ref="todoInput" />
 
     <!-- TODO: Add transitions -->
-    <todo v-for="todo of todos"
+    <todos>
+      <li v-for="todo of todos"
           af-scope="todo"
-          v-on:remove-todo="removeTodo(todo.id)"
           :key="todo.id"
           :data-id="todo.id"
-          :data-todo="todo.value"></todo>
+          :data-value="todo.value" />
+    </todos>
   </af_view-todo-list>
 </template>
 
 <script>
+  let globalTodoId = 0;
+
   export default {
     data() {
       return {
         todos: []
-      }
+      };
+    },
+    computed: {
+      todoInput() {
+        return this.$refs.todoInput.target;
+      },
     },
     methods: {
-      get todoInput() {
-        return this.$refs.todoInput;
-      },
       submitTodoInput() {
         const value = this.todoInput.value;
 
@@ -35,11 +40,9 @@
       },
       addTodo(todo) {
         this.todos.push({
-          id: this._currId++,
+          id: globalTodoId++,
           value: todo,
         });
-
-        this.forceUpdate();
       },
       removeTodo(id) {
         const todo = this.todos.find(todo => todo.id == id);

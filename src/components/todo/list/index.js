@@ -1,23 +1,45 @@
+import Appfairy from 'appfairy';
 import Vue from 'vue';
 import TodoList from './component';
-import TodoListElement from './element';
+import styleSheet from './style.scss'
+import viewHTML from './view.html';
 
-TodoListElement.implement({
-  get options() {
+class TodoListView extends Appfairy.View(HTMLElement) {
+  initializeStyle(style) {
+    style.innerHTML = styleSheet;
+  }
+
+  initializeView(view) {
+    view.innerHTML = viewHTML;
+  }
+}
+
+Appfairy.View.define('todo-list', TodoListView);
+
+class TodoListElement extends Appfairy.Element(HTMLElement) {
+  get component() {
+    return this.vm.$refs.component;
+  }
+
+  get childScopes() {
     return {
-      events: {
-        stopPropagation: true,
+      todo: {
+        removeTodo: (id) => {
+          this.component.removeTodo(id);
+        }
       }
     };
-  },
+  }
 
-  render(el, data, callback) {
-    new Vue({
+  render(el) {
+    if (this.created) return;
+
+    this.vm = new Vue({
       el,
-      data,
-      template: '<TodoList />',
       components: { TodoList },
-      mounted: callback,
+      template: '<TodoList ref="component" />',
     });
   }
-});
+}
+
+Appfairy.Element.define('todo-list', TodoListElement);
