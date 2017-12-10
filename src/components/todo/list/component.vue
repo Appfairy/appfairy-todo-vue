@@ -1,17 +1,16 @@
 <template>
-  <af_view-todo-list>
-    <add-btn v-on:click="onAddBtnClick" />
-    <todo-input v-on:keydown="onTodoInputKeyDown"
-                ref="todoInput" />
-
-    <transition-group tag="todos" duration="1000">
+  <af-todo-list-view>
+    <span af-name="add-btn" v-on:click="onAddBtnClick" />
+    <span af-name="todo-input" v-on:keydown="onTodoInputKeyDown"
+              ref="todoInput" />
+    <transition-group tag="ul" af-name="todos" name="todo" duration="1000">
       <li v-for="todo of todos"
           af-scope="todo"
           :key="todo.id"
           :data-id="todo.id"
           :data-value="todo.value" />
     </transition-group>
-  </af_view-todo-list>
+  </af-todo-list-view>
 </template>
 
 <script>

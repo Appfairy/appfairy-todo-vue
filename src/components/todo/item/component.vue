@@ -1,13 +1,11 @@
 <template>
-  <af_view-todo-item>
-    <check-box v-on:click="toggleCheck">
-      <check v-show="checked" />
-    </check-box>
-
-    <todo v-bind:style="todoStyle">{{ value }}</todo>
-
-    <rm-btn v-on:click="removeTodo" />
-  </af_view-todo-item>
+  <af-todo-item-view>
+    <span af-name="check-box" v-on:click="toggleCheck">
+      <span af-name="check" v-show="checked" />
+    </span>
+    <span af-name="todo" v-bind:style="todoStyle">{{ value }}</span>
+    <span af-name="rm-btn" v-on:click="removeTodo" />
+  </af-todo-item-view>
 </template>
 
 <script>
