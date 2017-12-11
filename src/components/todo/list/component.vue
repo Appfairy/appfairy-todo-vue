@@ -1,9 +1,8 @@
 <template>
   <af-todo-list-view>
-    <span af-name="add-btn" v-on:click="onAddBtnClick" />
-    <span af-name="todo-input" v-on:keydown="onTodoInputKeyDown"
-              ref="todoInput" />
-    <transition-group tag="ul" af-name="todos" name="todo" duration="500">
+    <span af-plug="add-btn" v-on:click="onAddBtnClick" />
+    <span af-plug="todo-input" v-on:keydown="onTodoInputKeyDown" ref="todoInput" />
+    <transition-group tag="ul" af-plug="todos" name="todo" duration="500">
       <li v-for="todo of todos"
           af-scope="todo"
           :key="todo.id"

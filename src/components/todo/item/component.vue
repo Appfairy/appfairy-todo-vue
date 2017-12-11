@@ -1,10 +1,10 @@
 <template>
   <af-todo-item-view>
-    <span af-name="check-box" v-on:click="toggleCheck">
-      <span af-name="check" v-show="checked" />
+    <span af-plug="check-box" v-on:click="toggleCheck">
+      <span af-plug="check" v-show="checked" />
     </span>
-    <span af-name="todo" v-bind:style="todoStyle">{{ value }}</span>
-    <span af-name="rm-btn" v-on:click="removeTodo" />
+    <span af-plug="todo" v-bind:style="todoStyle">{{ value }}</span>
+    <span af-plug="rm-btn" v-on:click="removeTodo" />
   </af-todo-item-view>
 </template>
 
