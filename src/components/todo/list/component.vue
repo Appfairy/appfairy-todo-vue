@@ -3,7 +3,7 @@
     <span af-name="add-btn" v-on:click="onAddBtnClick" />
     <span af-name="todo-input" v-on:keydown="onTodoInputKeyDown"
               ref="todoInput" />
-    <transition-group tag="ul" af-name="todos" name="todo" duration="1000">
+    <transition-group tag="ul" af-name="todos" name="todo" duration="500">
       <li v-for="todo of todos"
           af-scope="todo"
           :key="todo.id"
