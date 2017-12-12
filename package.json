@@ -1,6 +1,5 @@
 {
-  "name": "appfairy-vue-todo",
-  "version": "1.0.0",
+  "name": "appfairy-todo-vue",
   "description": "\"\"",
   "author": "DAB0mB <emanor6@gmail.com>",
   "private": true,
@@ -11,6 +10,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "appfairy": "^0.1.1",
     "vue": "^2.5.2"
   },
   "devDependencies": {

@@ -1,16 +1,15 @@
 import Appfairy from 'appfairy';
 import Vue from 'vue';
+import { css, html } from '@/common/todo/item';
 import TodoItem from './component';
-import styleSheet from './style.scss'
-import viewHTML from './view.html';
 
 class TodoItemView extends Appfairy.View(HTMLElement) {
   initializeStyle(style) {
-    style.innerHTML = styleSheet;
+    style.innerHTML = css;
   }
 
   initializeView(view) {
-    view.innerHTML = viewHTML;
+    view.innerHTML = html;
   }
 }
 
