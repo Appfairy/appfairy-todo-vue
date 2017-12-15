@@ -13,52 +13,52 @@
 </template>
 
 <script>
-  let globalTodoId = 0;
+let globalTodoId = 0;
 
-  export default {
-    data() {
-      return {
-        todos: []
-      };
+export default {
+  data() {
+    return {
+      todos: []
+    };
+  },
+  computed: {
+    todoInput() {
+      return this.$refs.todoInput.target;
     },
-    computed: {
-      todoInput() {
-        return this.$refs.todoInput.target;
-      },
+  },
+  methods: {
+    submitTodoInput() {
+      const value = this.todoInput.value;
+
+      if (!value) return;
+
+      this.todoInput.value = '';
+      this.addTodo(value);
     },
-    methods: {
-      submitTodoInput() {
-        const value = this.todoInput.value;
+    addTodo(todo) {
+      this.todos.push({
+        id: globalTodoId++,
+        value: todo,
+      });
+    },
+    removeTodo(id) {
+      const todo = this.todos.find(todo => todo.id == id);
 
-        if (!value) return;
+      if (!todo) return;
 
-        this.todoInput.value = '';
-        this.addTodo(value);
-      },
-      addTodo(todo) {
-        this.todos.push({
-          id: globalTodoId++,
-          value: todo,
-        });
-      },
-      removeTodo(id) {
-        const todo = this.todos.find(todo => todo.id == id);
-
-        if (!todo) return;
-
-        const index = this.todos.indexOf(todo);
-        this.todos.splice(index, 1);
-      },
-      onAddBtnClick() {
-        this.submitTodoInput();
-      },
-      onTodoInputKeyDown(e) {
-        if (e.key != 'Enter') {
-          return;
-        }
-
-        this.submitTodoInput();
+      const index = this.todos.indexOf(todo);
+      this.todos.splice(index, 1);
+    },
+    onAddBtnClick() {
+      this.submitTodoInput();
+    },
+    onTodoInputKeyDown(e) {
+      if (e.key != 'Enter') {
+        return;
       }
+
+      this.submitTodoInput();
     }
-  };
+  }
+};
 </script>

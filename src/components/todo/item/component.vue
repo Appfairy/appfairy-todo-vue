@@ -9,27 +9,27 @@
 </template>
 
 <script>
-  export default {
-    props: ['id', 'value'],
-    data() {
-      return {
-        checked: false,
-        todoStyle: {
-          textDecoration: ''
-        },
+export default {
+  props: ['id', 'value'],
+  data() {
+    return {
+      checked: false,
+      todoStyle: {
+        textDecoration: ''
+      },
+    };
+  },
+  methods: {
+    toggleCheck() {
+      this.checked = !this.checked;
+
+      this.todoStyle = {
+        textDecoration: this.checked ? 'line-through' : ''
       };
     },
-    methods: {
-      toggleCheck() {
-        this.checked = !this.checked;
-
-        this.todoStyle = {
-          textDecoration: this.checked ? 'line-through' : ''
-        };
-      },
-      removeTodo() {
-        this.$emit('remove-todo', this.id);
-      }
+    removeTodo() {
+      this.$emit('remove-todo', this.id);
     }
   }
+};
 </script>

@@ -10,7 +10,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
-    "appfairy": "^0.1.1",
+    "appfairy": "^0.1.2",
     "vue": "^2.5.2"
   },
   "devDependencies": {
