@@ -1,4 +1,5 @@
 import '@/common/todo/list';
+
 import Appfairy from 'appfairy';
 import Vue from 'vue';
 import TodoList from './component';

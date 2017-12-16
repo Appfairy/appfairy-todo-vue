@@ -1,4 +1,5 @@
 import '@/common/todo/item';
+
 import Appfairy from 'appfairy';
 import Vue from 'vue';
 import TodoItem from './component';
