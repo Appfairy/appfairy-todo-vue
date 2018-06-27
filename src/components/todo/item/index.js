@@ -5,28 +5,20 @@ import Vue from 'vue';
 import TodoItem from './component';
 
 class TodoItemElement extends Appfairy.Element(HTMLElement) {
-  get options() {
-    return {
-      dependent: true
-    };
-  }
-
   render(el, data) {
     this.vm = this.vm || new Vue({
       el,
       components: { TodoItem },
       template: `
-        <TodoItem :id="id"
-                  :value="value"
+        <TodoItem :todo="todo"
                   v-on:remove-todo="removeTodo" />
       `,
       data: {
-        id: 0,
-        value: '',
+        todo: {}
       },
       methods: {
         removeTodo: () => {
-          this.scope.removeTodo(this.vm.id);
+          data.removeTodo(this.vm.id);
         }
       }
     });

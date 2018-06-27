@@ -4,10 +4,9 @@
     <span af-plug="todo-input" v-on:keydown="onTodoInputKeyDown" ref="todoInput" />
     <transition-group tag="ul" af-plug="todos" name="todo" duration="500">
       <li v-for="todo of todos"
-          af-scope="todo"
           :key="todo.id"
-          :data-id="todo.id"
-          :data-value="todo.value" />
+          :data-todo="todo | hash"
+          :data-remove-todo="removeTodo | hash" />
     </transition-group>
   </af-todo-list-view>
 </template>

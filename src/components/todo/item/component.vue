@@ -3,14 +3,14 @@
     <span af-plug="check-box" v-on:click="toggleCheck">
       <span af-plug="check" v-show="checked" />
     </span>
-    <span af-plug="todo" v-bind:style="todoStyle">{{ value }}</span>
+    <span af-plug="todo" v-bind:style="todoStyle">{{ todo.value }}</span>
     <span af-plug="rm-btn" v-on:click="removeTodo" />
   </af-todo-item-view>
 </template>
 
 <script>
 export default {
-  props: ['id', 'value'],
+  props: ['todo'],
   data() {
     return {
       checked: false,
@@ -28,7 +28,7 @@ export default {
       };
     },
     removeTodo() {
-      this.$emit('remove-todo', this.id);
+      this.$emit('remove-todo', this.todo.id);
     }
   }
 };
